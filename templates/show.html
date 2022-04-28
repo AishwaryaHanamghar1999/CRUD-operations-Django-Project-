@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Employee Database</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/new.css' %}">
+
+    <style>
+        body{
+            background-image: url("{% static 'img/show.jpg/'%}");
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container mt-2">
+        <div class="alert alert-danger" role="alert">
+            <h1 class="text-center alert-heading">Employee DataBase Management System</h1>
+        </div>
+    </div>
+    
+    <table class="table table-hover table-striped table-bordered text-center" >
+        <thead class="thead-dark">
+        <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Designation</th>
+        <th>Actions</th>
+        </tr>
+        </thead>
+    {% for emp in emp %}
+    <tr>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.designation}}</td>
+        <td>
+            <a href="/edit/{{emp.id}}">EDIT</a>
+            <a href="/delete/{{emp.id}}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+<br>
+    <center>
+        <a href="/add" class="btn btn-primary">Add New Records</a>
+    </center>
+
+    
+    
+</body>
+</html>

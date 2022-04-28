@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update the records</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/new.css' %}" />
+    <style>
+      body{
+          background-image: url("{% static 'img/show.jpg/'%}");
+      }
+  </style>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <div class="alert alert-primary" role="alert">
+        <h1 class="text-center alert-heading">Update the records</h1>
+      </div>
+    </div>
+
+    
+    <div class="container">
+      <div class="jumbotron">
+        <form action="/update/{{employee.id}}" method="POST" class="text-center">
+          {% csrf_token %}
+          <label for="id">Employee ID</label>
+          <input type="text" name="id" id="id" value="{{employee.id}}" />
+          <br /><br />
+
+          <label for="name">Employee Name</label>
+          <input type="text" name="name" id="name" value="{{employee.name}}" />
+          <br /><br />
+
+          <label for="email">Employee email</label>
+          <input type="text" name="email" id="email" value="{{employee.email}}"/>
+          <br /><br />
+
+          <label for="designation">Employee Designation</label>
+          <input type="text" name="designation" id="designation" value="{{employee.designation}}"/>
+          <br /><br />
+          
+          <button type="submit" class="btn btn-success">UPDATE</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
